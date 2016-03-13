@@ -1,0 +1,107 @@
+
+body{
+  background-color: white;
+}
+
+.musicApp {
+   padding-left:;
+   padding-right:; 
+   padding-top:;
+   padding-bottom:;
+}
+.navBar {
+  box-sizing: border-box;
+  margin-bottom: 1%;
+  font-family: Arial;
+  position:relative;
+  background-color: #FFB4B0;
+  height: 45px;
+  border: 2px solid black;
+  }
+
+.viewMusic {
+  list-style-type: none
+}
+
+.musicControl {
+  box-sizing: border-box;
+  padding-left: 10px;
+  background-color: #4DD7FA;
+  font-family: Arial;
+  border: 2px solid black;
+  height: 400px;
+  width: 33%;
+  float: left;
+}
+
+/*input {
+  outline: 2px solid black;
+
+}*/
+
+/*selctors for Album & Artist*/
+select {
+  width: 131px;
+  outline: 2px solid black;
+}
+
+.listOne, .listTwo{
+  width: 48%;
+  font-family: Arial;
+  float: left;
+
+}
+
+.checkBoxListOne {
+  list-style-type: none;
+  padding: 0;
+  
+}
+
+#checkBoxOne, #checkBoxTwo, #checkBoxThree, #checkBoxFour, #checkBoxFive, #checkBoxSix {
+  outline: 2px solid black;
+  border-radius:10px;
+}
+
+
+.checkBoxListTwo {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.button{
+  display: inline-block;
+  height: 6%;
+  width: 45%;
+  background: #f0f1f2;
+  border: 2px solid black;
+  margin-left:20%;
+  text-align: center;
+  border-radius:10px;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+.musicListing {
+  font-family: Arial;
+  box-sizing: border-box;
+  margin-left: 1%;
+  padding-left: 6px;
+  background-color: #FEFAC0 ;
+  border: 2px solid black;
+  height: 400px;
+  width:65%;
+  float: right;
+}
+
+h2 {
+  color: #785616;
+  
+}
+
+
+
+
+ 
+ 
