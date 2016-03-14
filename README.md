@@ -58,7 +58,7 @@ Once you are done, make sure you add your files to git, make a commit, and then 
 ![Screenshot](/imgs/muiscHistoryV3a.png)
 
 ###Completed Version 3 Add Music page
-![Screenshot](/imgs/muiscHistoryV3b-working.png)
+![Screenshot](/imgs/muiscHistoryV3b.png)
 
 ###Completed Version 3 List Music page End
 ![Screenshot](/imgs/muiscHistoryV3c.png)
