@@ -82,12 +82,19 @@
   
 <!-- Add a DOM element that contains some input fields for the user to enter in the name of a song, the artist for the song, and the album. -->
   <div id="addForm" class="hidden">
-    <button id="addButton"> Add Song </button>
+    <label for="addTile">Song Name</label>
     <input id="addTitle" type="text" placeholder="add a title"/>
+    <label for="addArtist">Artist</label>
     <input id="addArtist" type="text" placeholder="add an artist"/>
+    <label for="addAlbum">Album</label>
     <input id="addAlbum" type="text" placeholder="add an album"/>
   </div>
-  <script type="text/javascript" src="javascripts/main.js"></script>
+
+  <div id="formButton" class="hidden">
+    <button id="addButton"> Add Song </button>
+  </div>
+
+ <!--  <script type="text/javascript" src="javascripts/main.js"></script> -->
   <script type="text/javascript" src="javascripts/songs.js"></script>
 </body>
 </html>
