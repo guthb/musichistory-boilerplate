@@ -1,3 +1,4 @@
+
 # Music History
 
 This is the project that you will be working for your individual work throughout the entire front end course. Don't worry, you'll be building lots of other applications, but when you learn a new technique, library or language, you'll be cutting your teeth with it on Music History.
@@ -44,5 +45,23 @@ Visit the [Music History mockup](https://moqups.com/chortlehoort/1E8LJX7r/) that
 
 Once you are done, make sure you add your files to git, make a commit, and then push your new code up to Github with the following command `git push origin master`.
 
-### Screenshots
+## Screenshots
+
+###Completed Boilerplate
 ![Screenshot](/imgs/MuiscHistory.png)
+
+
+###Completed Version 2 
+![Screenshot](/imgs/muiscHistoryV2.png)
+
+###Completed Version 3 List Music page Start
+![Screenshot](/imgs/muiscHistoryV3a.png)
+
+###Completed Version 3 Add Music page
+![Screenshot](/imgs/muiscHistoryV3b-working.png)
+
+###Completed Version 3 List Music page End
+![Screenshot](/imgs/muiscHistoryV3c.png)
+
+
+
