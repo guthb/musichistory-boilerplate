@@ -48,20 +48,30 @@ Once you are done, make sure you add your files to git, make a commit, and then 
 ## Screenshots
 
 ###Completed Boilerplate
-![Screenshot](/imgs/MuiscHistory.png)
+![Screenshot](/imgs/musicHistory.png)
 
 
 ###Completed Version 2 
-![Screenshot](/imgs/muiscHistoryV2.png)
+![Screenshot](/imgs/musicHistoryV2.png)
+
 
 ###Completed Version 3 List Music page Start
-![Screenshot](/imgs/muiscHistoryV3a.png)
+![Screenshot](/imgs/musicHistoryV3a.png)
+
 
 ###Completed Version 3 Add Music page
+<<<<<<< HEAD
 ![Screenshot](/imgs/muiscHistoryV3b.png)
+=======
+![Screenshot](/imgs/musicHistoryV3b-working.png)
+
+>>>>>>> c6aa0df999ae15349ef5164c877e2e497ff492e7
 
 ###Completed Version 3 List Music page End
-![Screenshot](/imgs/muiscHistoryV3c.png)
+![Screenshot](/imgs/musicHistoryV3c.png)
+
+###Completed Version 4
+![Screenshot](/imgs/musicHistoryV4.png)
 
 
 
