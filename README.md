@@ -70,5 +70,5 @@ Once you are done, make sure you add your files to git, make a commit, and then 
 ![Screenshot](/imgs/musicHistoryV4pt1.png)
 
 ###Completed Version 4 final
-![Screenshot](/imgs/mmusicHistoryV4pt2.png)
+![Screenshot](/imgs/musicHistoryV4pt2.png)
 
