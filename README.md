@@ -60,14 +60,15 @@ Once you are done, make sure you add your files to git, make a commit, and then 
 
 
 ###Completed Version 3 Add Music page
-![Screenshot](/imgs/musicHistoryV3b-working.png)
+![Screenshot](/imgs/muiscHistoryV3b.png)
 
 
 ###Completed Version 3 List Music page End
 ![Screenshot](/imgs/musicHistoryV3c.png)
 
 ###Completed Version 4
-![Screenshot](/imgs/musicHistoryV4.png)
+![Screenshot](/imgs/mmusicHistoryV4pt1.png)
 
-
+###Completed Version 4 final
+![Screenshot](/imgs/mmusicHistoryV4pt2.png)
 

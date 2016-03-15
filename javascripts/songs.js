@@ -1,23 +1,47 @@
 //define varibles:
+
 var songs = [];
-songs[songs.length] = "The Pink Panther > by Henry Mancini on the album The Pink Panther"; 
-songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
-songs[songs.length] = "Holy Wars...The Punishment Due > by MegaDeth on the album Rust in Peace";
+// songs[songs.length] = "The Pink Panther > by Henry Mancini on the album The Pink Panther"; 
+// songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
+// songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
+// songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
+// songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
+// songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
+// songs[songs.length] = "Holy Wars...The Punishment Due > by MegaDeth on the album Rust in Peace";
 
 //pull in main element requested to be populated
 var songList = document.getElementById("songListDom");
 
 //change to function so new songs can be entered through new page
-function updateSongsEntered(){
+//Loop over results and inject into Music History list view
+//add a delete button into string sent to song list
+//pull in the songs object
+function updateSongsEntered(songsfromJson){
   songList.innerHTML = "";
-  for (var i = 0; i < songs.length; i++) {
-    var songStringReplace = songs[i].replace(/[>*@(!]/g, "");
-    songStringReplace =songStringReplace.replace(/[>]/g, "-");
-    songList.innerHTML += "<li>" + songStringReplace + "</li>";
+  for (var i = 0; i < songsfromJson.length; i++) {
+    //var songStringReplace = songsfromJson[i].replace(/[>*@(!]/g, "");
+    //songStringReplace =songStringReplace.replace(/[>]/g, "-");
+    songList.innerHTML += "<li>" + songsfromJson[i].title +  " by " + songsfromJson[i].artist +
+    " on the Album " + songsfromJson[i].album + "<button class='deleteButton'>Delete</button>" +"</li>";
+  }
+  //console.log("songList", songList );
+  // watch the delete button
+  watchForDelete();
+
+  function watchForDelete() {
+    var deleteButton = document.getElementsByClassName("deleteButton")
+    for (var i = 0; i < deleteButton.length; i++) {
+      deleteButton[i].addEventListener("click", deleteSong);
+    }
+  }
+  //listParent is the Parent of the button.
+  //once envoked remove the li as the child of the ordered list
+  //since deleting the li removes the entire entry
+  function deleteSong(event) {
+    var listParent = event.target.parentElement;
+    console.log("indeltesong", event.target.parentElement );
+    console.log("listParent", listParent );
+    songList.removeChild(listParent);   
   }
 };
 
@@ -27,17 +51,17 @@ function updateSongsEntered(){
 var viewMusic = document.getElementById("viewMusic");
 //new page added for MH3
 var addMusic = document.getElementById("addMusic");
-console.log("viewMusic", viewMusic );
-console.log("addMusic", addMusic);
+// console.log("viewMusic", viewMusic );
+// console.log("addMusic", addMusic);
 
 //Areas of the page
 var viewMusicDiv = document.getElementById("listOfMusic");
 var addMusicPage = document.getElementById("addForm");
 var controlMusicDiv =document.getElementById("musicControl")
 var addMuiscButton = document.getElementById("addButton")
-console.log(viewMusicDiv); 
-console.log(addMusicPage);
-console.log(controlMusicDiv);
+// console.log(viewMusicDiv); 
+// console.log(addMusicPage);
+// console.log(controlMusicDiv);
 
 //build functions for visability of pages
 function viewMusicVisible(){
@@ -64,37 +88,60 @@ function addMusicVisible(){
 
 
 //add event listeners on the links for the navigation bar to
-//invoke the function to make visable ot hidden
+//invoke the function to make visible or hidden
 viewMusic.addEventListener("click", viewMusicVisible);
 addMusic.addEventListener("click" , addMusicVisible);
-
 
 //fills out the song form and clicks the add button, you should collect 
 //all values from the input fields, add the song to your array of songs, 
 //and update the song list in the DOM.
-function addedSongs(){
+function addedSongs(songsfromJson){
   console.log("in Added Songs");
   var songEntered = document.getElementById("addTitle");
   var artistEntered = document.getElementById("addArtist");
   var albumEntered = document.getElementById("addAlbum");
-  songs.push(`${songEntered.value} > by ${artistEntered.value} on the album ${albumEntered.value}`)
+  
+  //console.log("songs", songsfromJson );
+  //songs.push(`${songEntered.value} > by ${artistEntered.value} on the album ${albumEntered.value}`)
   
   //call the update dom function
-  updateSongsEntered();
-
+  updateSongsEntered(songsfromJson);
   //reset the form values for next entry
   songEntered.value = "";
   artistEntered.value = "";
   albumEntered.value = "";
 };
 
-
+//when the add music button is clicked, envoke function
+//to add those songs to array
 addMuiscButton.addEventListener("click", addedSongs);
 
+//read from local songs.json file with XHR
+//create an XHR object
+var newSongRequest = new XMLHttpRequest();
 
+//tell the XHR exactly what to do
+newSongRequest.open("GET","songs.json");
+newSongRequest.send();
 
+//XHR objects emit events when operations are complete or on error
+newSongRequest.addEventListener("load", executeOnSuccess);
+newSongRequest.addEventListener("failed", executeOnFailure)
 
+//console.log("newSongRequest",newSongRequest);
 
+//tell the XHR object what to do... 
+function executeOnFailure(){
+  alert("An Error Occured.... if on Mac please press command and R")
+};
+//on success load the object returned
+function executeOnSuccess(){
+  var newSongList = JSON.parse(this.responseText);
+  //console.log("newSongListfromJSON", newSongList.songs );
+  //Call the function to send to DOM
+  //only after a successful load
+  addedSongs(newSongList.songs);
+};
 
 
 
