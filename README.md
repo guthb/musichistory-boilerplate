@@ -15,7 +15,7 @@ You're going to get a copy of this Github repository downloaded - a.k.a. cloned 
 2. If you are not already there, go to the `/vagrant` directory.
 3. Look all the way up and to the right of this screen and you'll see a button with the word **Fork** on it. Click that button.
 4. What you've just done is taken a copy of *my* repository and all the code inside it, and copied into your Github account. You can now do whatever you like to your fork of my repository and it won't affect mine at all.
-5. Now on the top of the page, you will see the text **HTTPS** with a text box next to it. Make sure that HTTPS is selected.  
+5. Now on the top of the page, you will see the text **HTTPS** with a text box next to it. Make sure that HTTPS is selected.
 6. Click the little clipboard icon to the right and it copies that URL to your computer's clipboard.
 7. Go back to your terminal window (remember to use _Cmd+Tab_ keyboard shortcut on a Mac, or _Alt+Tab_ on Windows).
 8. Type in `git clone ` and then paste the URL after that text. You should see
@@ -34,7 +34,7 @@ You will be building the basic structure of your Music History application in HT
 
 Visit the [Music History mockup](https://moqups.com/chortlehoort/1E8LJX7r/) that I created. You will be recreating that document in your own HTML file.
 
-### Criteria 
+### Criteria
 
 1. Create five options for the artist select element of any artist that you enjoy.
 1. Create at least five options for the album select element. One, or more, album for each artist.
@@ -51,7 +51,7 @@ Once you are done, make sure you add your files to git, make a commit, and then 
 ![Screenshot](/imgs/musicHistory.png)
 
 
-###Completed Version 2 
+###Completed Version 2
 ![Screenshot](/imgs/musicHistoryV2.png)
 
 
