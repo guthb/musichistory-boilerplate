@@ -1,13 +1,6 @@
 //define varibles:
 
 var songs = [];
-// songs[songs.length] = "The Pink Panther > by Henry Mancini on the album The Pink Panther"; 
-// songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-// songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-// songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-// songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-// songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
-// songs[songs.length] = "Holy Wars...The Punishment Due > by MegaDeth on the album Rust in Peace";
 
 //pull in main element requested to be populated
 var songList = document.getElementById("songListDom");
@@ -19,8 +12,6 @@ var songList = document.getElementById("songListDom");
 function updateSongsEntered(songsfromJson){
   songList.innerHTML = "";
   for (var i = 0; i < songsfromJson.length; i++) {
-    //var songStringReplace = songsfromJson[i].replace(/[>*@(!]/g, "");
-    //songStringReplace =songStringReplace.replace(/[>]/g, "-");
     songList.innerHTML += "<li>" + songsfromJson[i].title +  " by " + songsfromJson[i].artist +
     " on the Album " + songsfromJson[i].album + "<button class='deleteButton'>Delete</button>" +"</li>";
   }
@@ -41,7 +32,7 @@ function updateSongsEntered(songsfromJson){
     var listParent = event.target.parentElement;
     console.log("indeltesong", event.target.parentElement );
     console.log("listParent", listParent );
-    songList.removeChild(listParent);   
+    songList.removeChild(listParent);
   }
 };
 
@@ -51,17 +42,12 @@ function updateSongsEntered(songsfromJson){
 var viewMusic = document.getElementById("viewMusic");
 //new page added for MH3
 var addMusic = document.getElementById("addMusic");
-// console.log("viewMusic", viewMusic );
-// console.log("addMusic", addMusic);
 
 //Areas of the page
 var viewMusicDiv = document.getElementById("listOfMusic");
 var addMusicPage = document.getElementById("addForm");
 var controlMusicDiv =document.getElementById("musicControl")
 var addMuiscButton = document.getElementById("addButton")
-// console.log(viewMusicDiv); 
-// console.log(addMusicPage);
-// console.log(controlMusicDiv);
 
 //build functions for visability of pages
 function viewMusicVisible(){
@@ -85,36 +71,37 @@ function addMusicVisible(){
   controlMusicDiv.classList.remove("visible");
   controlMusicDiv.classList.add("hidden");
 };
-
-
 //add event listeners on the links for the navigation bar to
 //invoke the function to make visible or hidden
 viewMusic.addEventListener("click", viewMusicVisible);
 addMusic.addEventListener("click" , addMusicVisible);
-
-//fills out the song form and clicks the add button, you should collect 
-//all values from the input fields, add the song to your array of songs, 
+//fills out the song form and clicks the add button, you should collect
+//all values from the input fields, add the song to your array of songs,
 //and update the song list in the DOM.
 function addedSongs(songsfromJson){
-  console.log("in Added Songs");
+  for (var i = 0; i < songsfromJson.length; i++) {
+    songs.push(songsfromJson[i]);
+  }
+  //call the update dom function
+  updateSongsEntered(songs);
+ };
+//update songs from add songs page
+function updateSongs(){
   var songEntered = document.getElementById("addTitle");
   var artistEntered = document.getElementById("addArtist");
   var albumEntered = document.getElementById("addAlbum");
-  
   //console.log("songs", songsfromJson );
-  //songs.push(`${songEntered.value} > by ${artistEntered.value} on the album ${albumEntered.value}`)
-  
+  songs.push({ "title": songEntered.value, "artist": artistEntered.value, "album":albumEntered.value});
   //call the update dom function
-  updateSongsEntered(songsfromJson);
+  updateSongsEntered(songs);
   //reset the form values for next entry
   songEntered.value = "";
   artistEntered.value = "";
   albumEntered.value = "";
 };
-
 //when the add music button is clicked, envoke function
 //to add those songs to array
-addMuiscButton.addEventListener("click", addedSongs);
+addMuiscButton.addEventListener("click", updateSongs);
 
 //read from local songs.json file with XHR
 //create an XHR object
@@ -128,9 +115,7 @@ newSongRequest.send();
 newSongRequest.addEventListener("load", executeOnSuccess);
 newSongRequest.addEventListener("failed", executeOnFailure)
 
-//console.log("newSongRequest",newSongRequest);
-
-//tell the XHR object what to do... 
+//tell the XHR object what to do
 function executeOnFailure(){
   alert("An Error Occured.... if on Mac please press command and R")
 };
