@@ -15,7 +15,6 @@
         <li> <a href="#">Profile</a></li>
       </ul>
     </div>
-
     <!-- create a section on the left that provides:
     song length slide bar, artist dropdown
     album dropdown, genre check boxes & filter button -->
@@ -55,8 +54,7 @@
               <li><input type="checkbox" id="checkBoxTwo" value="second_checkbox"/> <label for="checkBoxTwo"> Pop</label></li>
               <li><input type="checkbox" id="checkBoxThree" value="third_checkbox"/> <label  for="checkBoxThree"> Blues</label>
             </ul>
-          </div>  
-
+          </div>
           <div class="listTwo">
             <ul class="checkBoxListTwo">
               <li><input type="checkbox" id="checkBoxFour" value="fourth_checkbox"/> <label for="checkBoxFour"> Classical</label></li>
@@ -78,6 +76,7 @@
         <nav id="mainList ">
           <ol id="songListDom"> </ol>
         </nav>
+        <button id="moreButton">More</button>
       </div>
 <!-- Add a DOM element that contains some input fields for the user to enter in the name of a song, the artist for the song, and the album. -->
   <div id="addForm" class="hidden">
@@ -88,12 +87,9 @@
     <label for="addAlbum">Album</label>
     <input id="addAlbum" type="text" placeholder="add an album"/>
   </div>
-
   <div id="formButton" class="hidden">
     <button id="addButton"> Add Song </button>
   </div>
-
- <!--  <script type="text/javascript" src="javascripts/main.js"></script> -->
   <script type="text/javascript" src="javascripts/songs.js"></script>
 </body>
 </html>

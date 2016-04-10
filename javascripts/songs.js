@@ -1,10 +1,8 @@
-//define varibles:
-
+///define varibles:
 var songs = [];
 
 //pull in main element requested to be populated
 var songList = document.getElementById("songListDom");
-
 //change to function so new songs can be entered through new page
 //Loop over results and inject into Music History list view
 //add a delete button into string sent to song list
@@ -128,7 +126,37 @@ function executeOnSuccess(){
   addedSongs(newSongList.songs);
 };
 
+//when user presses more button pull in second JSON file
+var moreMusicButton = document.getElementById("moreButton");
+moreMusicButton.addEventListener("click", loadNextFile);
 
+//when the more button is clicked, envoke function
+//to add those songs to array
+function loadNextFile(event) {
 
+  //read from addtional local songs.json file with XHR
+  //create an XHR object
+  var moreSongRequest = new XMLHttpRequest();
 
+  //tell the XHR exactly what to do
+  moreSongRequest.open("GET","songs2.json");
+  moreSongRequest.send();
 
+  //XHR objects emit events when operations are complete or on error
+  moreSongRequest.addEventListener("load", moreExecuteOnSuccess);
+  moreSongRequest.addEventListener("failed", moreExecuteOnFailure)
+
+  //tell the XHR object what to do...
+  function moreExecuteOnFailure(){
+    alert("An Error Occured.... if on Mac please press command and R")
+  };
+  //on success load the object returned
+  //now thate are adding two files will call this function again
+  //so add the object again
+  function moreExecuteOnSuccess(){
+    var moreSongList = JSON.parse(this.responseText);
+    //Call the function to send to DOM
+    //only after a successful load
+    addedSongs(moreSongList.songs);
+  };
+};

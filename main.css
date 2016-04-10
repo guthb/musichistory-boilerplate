@@ -5,7 +5,7 @@ body{
 
 .musicApp {
    padding-left:;
-   padding-right:; 
+   padding-right:;
    padding-top:;
    padding-bottom:;
 }
@@ -64,7 +64,7 @@ select {
 
 .checkBoxListOne {
   list-style-type: none;
-  padding: 0;  
+  padding: 0;
 }
 
 #checkBoxOne, #checkBoxTwo, #checkBoxThree, #checkBoxFour, #checkBoxFive, #checkBoxSix {
@@ -105,7 +105,7 @@ select {
 }
 
 h2 {
-  color: #785616;  
+  color: #785616;
 }
 
 /*Muisc History 3*/
@@ -144,6 +144,13 @@ h2 {
   padding-bottom: 5px;
 }
 
+
+#moreButton {
+  position: absolute;
+  top: 400px;
+  right: 30px;
+}
+
 /*visibility class for DIV and new Page*/
 .hidden{
   visibility: hidden;
@@ -152,10 +159,3 @@ h2 {
 .visible{
   visibility: visible;
 }
-
-
-
-
-
- 
- 
