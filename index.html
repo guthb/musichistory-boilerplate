@@ -2,71 +2,77 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Music History</title>
   </head>
   <body>
     <!-- create a nav bar that has links that spans the top of the DOM -->
     <!-- In the navigation bar, make sure you have two links labeled "List Music", and "Add Music". -->
-   <div class="navBar">
-      <ul>
-        <li id="viewMusic"> <a href="#">View Music</a></li>
-        <li id="addMusic"> <a href="#">Add Music</a></li>
-        <li> <a href="#">Profile</a></li>
-      </ul>
-    </div>
+   <!-- <nav class="navbar navbar-default"> -->
+     <div class="navbar">
+        <ul >
+          <li id="viewMusic"> <a href="#">View Music</a></li>
+          <li id="addMusic"> <a href="#">Add Music</a></li>
+          <li> <a href="#">Profile</a></li>
+        </ul>
+      </div>
+    <!-- </nav> -->
     <!-- create a section on the left that provides:
     song length slide bar, artist dropdown
     album dropdown, genre check boxes & filter button -->
-    <div id="musicControl" class="musicControl">
-      <section class="sliderBar">
-       <p>Song Length:</p>
-       <input type="range"/>
-     </section>
-     <!-- artist - dropdown -->
-      <section class="artistControl">
-        <p>Artist:</p>
-          <select name="Artist">
-            <option value="Artist" selected>Options</option>
-            <option value="Artist">Grateful Dead</option>
-            <option value="Artist">Pantera</option>
-            <option value="Artist">Cool and The Gang</option>
-            <option value="Artist">Daft Punk</option>
-          </select>
-      </section>
-      <!-- album dropdown -->
-      <section class="albumControl">
-         <p>Album</p>
-            <select name="Album">
-              <option value="Album" selcted>Options</option>
-              <option value="Album">Scarlett Begonia</option>
-              <option value="Album">Walk</option>
-              <option value="Album">Celebration</option>
-              <option value="Album">One More Time</option>
+      <div>
+      <div id="musicControl" class="musicControl">
+        <section class="sliderBar">
+         <p>Song Length:</p>
+         <input type="range"/>
+       </section>
+       <!-- artist - dropdown -->
+        <section class="artistControl">
+          <p>Artist:</p>
+            <select name="Artist">
+              <option value="Artist" selected>Options</option>
+              <option value="Artist">Grateful Dead</option>
+              <option value="Artist">Pantera</option>
+              <option value="Artist">Cool and The Gang</option>
+              <option value="Artist">Daft Punk</option>
             </select>
-      </section>
-        <!-- genre checkboxes as two div withunordered list-->
-        <section class="Genre">
-          <p> Genre: </p>
-          <div class="listOne">
-            <ul class="checkBoxListOne">
-              <li><input type="checkbox" id="checkBoxOne" value="first_checkbox"/> <label for="checkBoxOne">Rock</label></li>
-              <li><input type="checkbox" id="checkBoxTwo" value="second_checkbox"/> <label for="checkBoxTwo"> Pop</label></li>
-              <li><input type="checkbox" id="checkBoxThree" value="third_checkbox"/> <label  for="checkBoxThree"> Blues</label>
-            </ul>
-          </div>
-          <div class="listTwo">
-            <ul class="checkBoxListTwo">
-              <li><input type="checkbox" id="checkBoxFour" value="fourth_checkbox"/> <label for="checkBoxFour"> Classical</label></li>
-              <li><input type="checkbox" id="checkBoxFive" value="fifth_checkbox"/> <label  for="checkBoxFive"> Jazz</label></li>
-              <li><input type="checkbox" id="checkBoxSix" value="sixth_checkbox"/> <label  for="checkBoxSix"> Hip Hop</label></li>
-            </ul>
-          </div>
         </section>
-        <!-- filter button -->
-        <section class="filterButton">
-          <a href="#" class="button">Filter</a>
+        <!-- album dropdown -->
+        <section class="albumControl">
+           <p>Album</p>
+              <select name="Album">
+                <option value="Album" selcted>Options</option>
+                <option value="Album">Scarlett Begonia</option>
+                <option value="Album">Walk</option>
+                <option value="Album">Celebration</option>
+                <option value="Album">One More Time</option>
+              </select>
         </section>
+          <!-- genre checkboxes as two div withunordered list-->
+          <section class="Genre">
+            <p> Genre: </p>
+            <div class="listOne">
+              <ul class="checkBoxListOne">
+                <li><input type="checkbox" id="checkBoxOne" value="first_checkbox"/> <label for="checkBoxOne">Rock</label></li>
+                <li><input type="checkbox" id="checkBoxTwo" value="second_checkbox"/> <label for="checkBoxTwo"> Pop</label></li>
+                <li><input type="checkbox" id="checkBoxThree" value="third_checkbox"/> <label  for="checkBoxThree"> Blues</label>
+              </ul>
+            </div>
+            <div class="listTwo">
+              <ul class="checkBoxListTwo">
+                <li><input type="checkbox" id="checkBoxFour" value="fourth_checkbox"/> <label for="checkBoxFour"> Classical</label></li>
+                <li><input type="checkbox" id="checkBoxFive" value="fifth_checkbox"/> <label  for="checkBoxFive"> Jazz</label></li>
+                <li><input type="checkbox" id="checkBoxSix" value="sixth_checkbox"/> <label  for="checkBoxSix"> Hip Hop</label></li>
+              </ul>
+            </div>
+          </section>
+          <!-- filter button -->
+          <section class="filterButton">
+            <a href="#" class="button">Filter</a>
+          </section>
+        </div>
       </div>
     <!-- create a section that shows the list of music -->
     <!-- this is the main area for version 2
@@ -90,6 +96,13 @@
   <div id="formButton" class="hidden">
     <button id="addButton"> Add Song </button>
   </div>
-  <script type="text/javascript" src="javascripts/songs.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/songs.js"></script> -->
+  <!-- <script src="./bower_components/jquery/dist/jquery.min.js"></script> -->
+  <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="dist/bundle.js"></script>
+
+
+
 </body>
 </html>
