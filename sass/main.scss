@@ -1,0 +1,91 @@
+//Exe 7. sass the css
+
+@import  "navBar";
+@import "buttons";
+@import "addmusic";
+
+$myColor: white;
+$ickyColor1: #4DD7FA;
+$ickyColor2: #FEFAC0;
+$headerColor: #785616;
+
+body{
+  background-color: $myColor;
+}
+
+.musicApp {
+   // padding-left:;
+   // padding-right:;
+   // padding-top:;
+   // padding-bottom:;
+}
+
+#addMusic {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  padding-left: 5px;
+}
+
+.viewMusic {
+  list-style-type: none
+}
+
+.musicControl {
+  box-sizing: border-box;
+  padding-left: 10px;
+  background-color: $ickyColor1;
+  font-family: Arial;
+  border: 2px solid black;
+  height: 400px;
+  width: 33%;
+  float: left;
+}
+
+/*selctors for Album & Artist*/
+select {
+  width: 131px;
+  outline: 1px solid black;
+}
+
+.listOne, .listTwo{
+  width: 48%;
+  font-family: Arial;
+  float: left;
+}
+
+.checkBoxListOne {
+  list-style-type: none;
+  padding: 0;
+}
+
+ %checkBox{
+  outline: 1px solid black;
+  border-radius:10px;
+ }
+
+
+#checkBoxOne, #checkBoxTwo, #checkBoxThree, #checkBoxFour, #checkBoxFive, #checkBoxSix{
+  @extend %checkBox
+}
+
+.checkBoxListTwo {
+  list-style-type: none;
+  padding: 0;
+}
+
+.musicListing {
+  font-family: Arial;
+  box-sizing: border-box;
+  margin-left: 1%;
+  padding-left: 6px;
+  background-color: $ickyColor2;
+  border: 2px solid black;
+  height: 400px;
+  width:65%;
+  float: right;
+}
+
+h2 {
+  color: $headerColor;
+}
+

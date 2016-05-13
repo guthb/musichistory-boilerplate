@@ -95,6 +95,31 @@ Make Music History into a single page application.
 
 Implement jQuery in your Music History code. Every `innerHTML`, `getElementById`, `getElementByClassName`, event listener and XHR request. Covert 'em all.
 
+
+## Assignment 6  - Not Complete
+
+### Using Browerify, you should create several modules for the application.
+One module is responsible for loading songs from a JSON file and storing them in an array. This module should expose one method for getting the entire list of songs, and one method for adding a song to the array.
+One module is responsible for making the filtering form work. Therefore, it will need to use methods from the previous module.
+One module is responsible for showing the two views of the app (song list and song form).
+
+###Filtering
+
+1. When the user selects an artist, only songs from that artist should appear.
+1. When the user selects an album, only songs from that album should appear.
+
+###Adding Songs
+
+1. The new music form should have a field for every key on a song object. We started with just Artist, Album, and Title, but you can add more if you wish.
+1. The music form should be fully functional. When you click the Save Song button, a new object should be added to the array of songs. The DOM should also be immediately updated with the new song added.
+
+
+## Assignment 7
+
+All CSS converted into SASS, use  Gulp so that JavaScript code is automatically checked when writing it, and your SASS is compiled into CSS.
+
+Application refactored to use the Bootstrap grid system for layout  - Not Complete
+
 ## Screenshots
 
 ###Completed Boilerplate
@@ -121,6 +146,4 @@ Implement jQuery in your Music History code. Every `innerHTML`, `getElementById`
 
 ###Completed Version 4 final
 ![Screenshot](/imgs/musicHistoryV4pt2.png)
-
-
 

@@ -1,0 +1,47 @@
+//buttons
+
+%button {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: #f0f1f2;
+}
+
+.button{
+  display: inline-block;
+  height: 6%;
+  width: 45%;
+  background: #f0f1f2;
+  border: 2px solid black;
+  margin-left:20%;
+  text-align: center;
+  border-radius:10px;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+#addButton{
+  @extend %button;
+  position: absolute;
+  top: 219px;
+  left: 145px;
+  padding-bottom: 5px;
+}
+
+.button{
+  @extend %button;
+  height: 6%;
+  width: 45%;
+  margin-left:20%;
+  text-align: center;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+
+#moreButton {
+  position: absolute;
+  top: 400px;
+  right: 30px;
+}
+

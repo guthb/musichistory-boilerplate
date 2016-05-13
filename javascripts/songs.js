@@ -1,13 +1,18 @@
 //Exe 5 Every innerHTML, getElementById, getElementByClassName,
 //event listener and XHR request. Covert 'em all to jQuery
 
+"use strict";
+
+
 //define varibles:
 var songs = [];
 var viewMusic = $("#viewMusic");
 //new page added for MH3
 var addMusic = $("#addMusic");
 //Areas of the page
-var viewMusicDiv = $("#listOfMusic")
+
+var viewMusicDiv = $("#listOfMusic");
+
 var addMusicPage = $("#addForm");
 var controlMusicDiv = $("#musicControl");
 var addMuiscButton = $("#addButton");
@@ -30,7 +35,9 @@ var songList = $("#songListDom");
 //pull in the songs object
 
 function updateSongsEntered(songs){
-  songListString =""
+
+  var songListString ="";
+
   for (var i = 0; i < songs.length; i++) {
     songListString += "<li>" + songs[i].title +  " by " + songs[i].artist +
     " on the Album " + songs[i].album + "<button class='deleteButton'>Delete</button>" +"</li>";
@@ -38,15 +45,17 @@ function updateSongsEntered(songs){
   songList.html(songListString);
   // watch the delete button
   watchForDelete();
-};
+}
+
 
 function watchForDelete() {
   //var deleteButton = document.getElementsByClassName("deleteButton")
   var deleteButton =$(".deleteButton");
   for (var i = 0; i < deleteButton.length; i++) {
     $(deleteButton[i]).on("click", deleteSong);
-  };
-};
+  }
+}
+
 //listParent is the Parent of the button.
 //once envoked remove the li as the child of the ordered list
 //since deleting the li removes the entire entry
@@ -59,30 +68,33 @@ function deleteSong(event) {
 function viewMusicVisible(){
   viewMusicDiv.removeClass("hidden");
   viewMusicDiv.addClass("visible");
-  controlMusicDiv.removeClass("hidden")
+  controlMusicDiv.removeClass("hidden");
   controlMusicDiv.addClass("visible");
   addMusicPage.removeClass("visible");
   addMusicPage.addClass("hidden");
-  addMuiscButton.removeClass("visible")
-  addMuiscButton.addClass("hidden")
-};
+  addMuiscButton.removeClass("visible");
+  addMuiscButton.addClass("hidden");
+}
 
 function addMusicVisible(){
-  addMusicPage.removeClass("hidden")
+  addMusicPage.removeClass("hidden");
   addMusicPage.addClass("visible");
-  addMuiscButton.removeClass("hidden")
-  addMuiscButton.addClass("visible")
+  addMuiscButton.removeClass("hidden");
+  addMuiscButton.addClass("visible");
   viewMusicDiv.removeClass("visible");
   viewMusicDiv.addClass("hidden");
   controlMusicDiv.removeClass("visible");
   controlMusicDiv.addClass("hidden");
-};
+}
+
 
 //add event listeners on the links for the navigation bar to
 //invoke the function to make visible or hidden
 
 viewMusic.click(viewMusicVisible);
-addMusic.click(addMusicVisible)
+
+addMusic.click(addMusicVisible);
+
 //fills out the song form and clicks the add button, you should collect
 //all values from the input fields, add the song to your array of songs,
 //and update the song list in the DOM.
@@ -93,7 +105,8 @@ function addedSongs(songsfromJson){
   }
   //call the update dom function
   updateSongsEntered(songs);
-};
+}
+
 
 //update songs from add songs page
 function updateSongs(){
@@ -107,15 +120,19 @@ function updateSongs(){
   songEntered.val("");
   artistEntered.val("");
   albumEntered.val("");
-};
+
+}
+
 
 //when the add music button is clicked, envoke function
 //to add those songs to array
 addMuiscButton.click(updateSongs);
 
 //when user presses more button pull in second JSON file
-var moreMusicButton =$("#moreButton")
-moreMusicButton.click(loadNextFile)
+
+var moreMusicButton =$("#moreButton");
+moreMusicButton.click(loadNextFile);
+
 //when the more button is clicked, envoke function
 //to add those songs to array
 function loadNextFile(event) {
@@ -123,7 +140,6 @@ function loadNextFile(event) {
     url: "songs2.json",
     success: addedSongs
   });
-};
-
+}
 
 

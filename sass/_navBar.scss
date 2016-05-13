@@ -1,0 +1,20 @@
+//navbar
+
+.navbar {
+  box-sizing: border-box;
+  margin-bottom: 1%;
+  font-family: Arial;
+  position:relative;
+  background-color: #FFB4B0;
+  height: 45px;
+  border: 2px solid black;
+}
+
+.navbar li{
+  float:left;
+  padding: 2px 5px;
+}
+
+.navbar ul{
+  list-style: none;
+}
