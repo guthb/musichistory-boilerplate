@@ -1,13 +1,18 @@
 //Exe 5 Every innerHTML, getElementById, getElementByClassName,
 //event listener and XHR request. Covert 'em all to jQuery
+
 "use strict";
+
+
 //define varibles:
 var songs = [];
 var viewMusic = $("#viewMusic");
 //new page added for MH3
 var addMusic = $("#addMusic");
 //Areas of the page
+
 var viewMusicDiv = $("#listOfMusic");
+
 var addMusicPage = $("#addForm");
 var controlMusicDiv = $("#musicControl");
 var addMuiscButton = $("#addButton");
@@ -30,7 +35,9 @@ var songList = $("#songListDom");
 //pull in the songs object
 
 function updateSongsEntered(songs){
+
   var songListString ="";
+
   for (var i = 0; i < songs.length; i++) {
     songListString += "<li>" + songs[i].title +  " by " + songs[i].artist +
     " on the Album " + songs[i].album + "<button class='deleteButton'>Delete</button>" +"</li>";
@@ -40,6 +47,7 @@ function updateSongsEntered(songs){
   watchForDelete();
 }
 
+
 function watchForDelete() {
   //var deleteButton = document.getElementsByClassName("deleteButton")
   var deleteButton =$(".deleteButton");
@@ -47,6 +55,7 @@ function watchForDelete() {
     $(deleteButton[i]).on("click", deleteSong);
   }
 }
+
 //listParent is the Parent of the button.
 //once envoked remove the li as the child of the ordered list
 //since deleting the li removes the entire entry
@@ -78,11 +87,14 @@ function addMusicVisible(){
   controlMusicDiv.addClass("hidden");
 }
 
+
 //add event listeners on the links for the navigation bar to
 //invoke the function to make visible or hidden
 
 viewMusic.click(viewMusicVisible);
+
 addMusic.click(addMusicVisible);
+
 //fills out the song form and clicks the add button, you should collect
 //all values from the input fields, add the song to your array of songs,
 //and update the song list in the DOM.
@@ -94,6 +106,7 @@ function addedSongs(songsfromJson){
   //call the update dom function
   updateSongsEntered(songs);
 }
+
 
 //update songs from add songs page
 function updateSongs(){
@@ -107,15 +120,19 @@ function updateSongs(){
   songEntered.val("");
   artistEntered.val("");
   albumEntered.val("");
+
 }
+
 
 //when the add music button is clicked, envoke function
 //to add those songs to array
 addMuiscButton.click(updateSongs);
 
 //when user presses more button pull in second JSON file
+
 var moreMusicButton =$("#moreButton");
 moreMusicButton.click(loadNextFile);
+
 //when the more button is clicked, envoke function
 //to add those songs to array
 function loadNextFile(event) {
@@ -124,3 +141,5 @@ function loadNextFile(event) {
     success: addedSongs
   });
 }
+
+

@@ -95,6 +95,7 @@ Make Music History into a single page application.
 
 Implement jQuery in your Music History code. Every `innerHTML`, `getElementById`, `getElementByClassName`, event listener and XHR request. Covert 'em all.
 
+
 ## Assignment 6  - Not Complete
 
 ### Using Browerify, you should create several modules for the application.
@@ -145,5 +146,4 @@ Application refactored to use the Bootstrap grid system for layout  - Not Comple
 
 ###Completed Version 4 final
 ![Screenshot](/imgs/musicHistoryV4pt2.png)
-
 
