@@ -19,10 +19,10 @@ var addMuiscButton = $("#addButton");
 
 $(document).ready(function() {
   //need load songs from Json file  ajax calls
+    console.log("readytest" );
    $.ajax({
-    url: "songs.json",
-       success: addedSongs
-  });
+    url: "https://musichistory-bg-e3.firebaseio.com/songs.json"})
+        .done(addedSongs);
 });
 
 
@@ -37,7 +37,7 @@ var songList = $("#songListDom");
 function updateSongsEntered(songs){
 
   var songListString ="";
-
+  console.log("songs",songs );
   for (var i = 0; i < songs.length; i++) {
     songListString += "<li>" + songs[i].title +  " by " + songs[i].artist +
     " on the Album " + songs[i].album + "<button class='deleteButton'>Delete</button>" +"</li>";
@@ -99,10 +99,20 @@ addMusic.click(addMusicVisible);
 //all values from the input fields, add the song to your array of songs,
 //and update the song list in the DOM.
 function addedSongs(songsfromJson){
-  songsfromJson = songsfromJson.songs;
-  for (var i = 0; i < songsfromJson.length; i++) {
-    songs.push(songsfromJson[i]);
-  }
+ // for let (songs in songsfromJson)
+
+  console.log("songsfromJson", songsfromJson);
+  // songsfromJson = songsfromJson.songs;
+
+
+  for (let song in songsfromJson){
+    songs.push(songsfromJson[song]);
+  };
+
+
+  // for (var i = 0; i < songsfromJson.length; i++) {
+  //   songs.push(songsfromJson[i]);
+  // }
   //call the update dom function
   updateSongsEntered(songs);
 }

@@ -73,6 +73,9 @@
   margin: 3px;
   width: 76px; }
 
+.songListDom {
+  overflow: scroll; }
+
 /*visibility class for DIV and new Page*/
 .hidden {
   visibility: hidden; }
@@ -132,7 +135,8 @@ select {
   border: 2px solid black;
   height: 400px;
   width: 65%;
-  float: right; }
+  float: right;
+  overflow: scroll; }
 
 h2 {
   color: #785616; }
