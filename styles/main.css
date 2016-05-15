@@ -73,9 +73,6 @@
   margin: 3px;
   width: 76px; }
 
-.songListDom {
-  overflow: scroll; }
-
 /*visibility class for DIV and new Page*/
 .hidden {
   visibility: hidden; }

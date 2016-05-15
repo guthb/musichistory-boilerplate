@@ -120,6 +120,14 @@ All CSS converted into SASS, use  Gulp so that JavaScript code is automatically 
 
 Application refactored to use the Bootstrap grid system for layout  - Not Complete
 
+## Assignment 8
+
+1.Use jQuery to retrieve the songs from your Firebase API.
+1.Use jQuery to add new songs to your Firebase API with POST XHR calls.
+1.Populate the form fields with data from your API.
+1.When "Filter" button is pressed, update the song list with songs that only match the specified criteria.
+
+
 ## Screenshots
 
 ###Completed Boilerplate
