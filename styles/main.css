@@ -132,7 +132,8 @@ select {
   border: 2px solid black;
   height: 400px;
   width: 65%;
-  float: right; }
+  float: right;
+  overflow: scroll; }
 
 h2 {
   color: #785616; }
