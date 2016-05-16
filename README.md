@@ -125,7 +125,7 @@ Application refactored to use the Bootstrap grid system for layout  - Not Comple
 1.Use jQuery to retrieve the songs from your Firebase API.
 1.Use jQuery to add new songs to your Firebase API with POST XHR calls.
 1.Populate the form fields with data from your API.
-1.When "Filter" button is pressed, update the song list with songs that only match the specified criteria.
+1.User jQuery to delete a song from your Firebase API with DELETE XHR calls.
 
 
 ## Screenshots
@@ -154,4 +154,7 @@ Application refactored to use the Bootstrap grid system for layout  - Not Comple
 
 ###Completed Version 4 final
 ![Screenshot](/imgs/musicHistoryV4pt2.png)
+
+###Completed Version 7 and 8 final
+![Screenshot](/imgs/musicHistoryV8.png)
 
