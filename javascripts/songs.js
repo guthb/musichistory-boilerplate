@@ -23,16 +23,26 @@ $(document).ready(function() {
     console.log("doucment ready test" );
 
 
-function loadsongs(){
+  function loadanddisplaysongs(){
+
+
+
+// function loadsongs(){
+
 
    $.ajax({
     url: "https://musichistory-bg-e3.firebaseio.com/songs.json"})
         .done(addedSongs);//replace addedSongs with UpdateSongsEntered
 
+  }
+  loadanddisplaysongs();
 
-}
 
-loadsongs();
+
+//}
+
+//loadsongs();
+
 
 
 
@@ -72,9 +82,14 @@ function updateSongsEntered(songs){
     "<button class='deleteButton'>Delete</button>" +
     "</li>";
   }
-  
+
+  console.log("songlist string", songListString);
   songList.html("");
+
+
+  //songList.html("");
   //console.log("songlist string", songListString);
+
   songList.append(songListString);
 
   watchForDelete();
@@ -95,9 +110,15 @@ function deleteSong(event) {
   let listParent = event.target.closest('li').id;
   //$(listParent, songList).remove();
    console.log("songlist",songList );
+
+   console.log("listParent.ID", listParent[0].id);
+
+   deleteSongDB(listParent[0].id);
+
    // console.log("listParent.ID", listParent.id);
-   deleteSongDB(listParent);
-   loadsongs()
+   // deleteSongDB(listParent);
+   // loadsongs()
+
 //------------------call ajax  to remove from firebase---------------------//
 
 
@@ -219,7 +240,8 @@ function loadNextFile(event) {
  var albumEntered = $("#addAlbum");
  songs.push({ "title": songEntered.val(), "artist": artistEntered.val(), "album":albumEntered.val()});
 //--------------------------call the update dom function----------------------------------------------//
-  updateSongsEntered(songs);
+  //updateSongsEntered(songs);
+  loadanddisplaysongs();
 //--------------------------------reset the form values for next entry-------------------------------//
   songEntered.val("");
   artistEntered.val("");
@@ -227,3 +249,7 @@ function loadNextFile(event) {
 } //end of  loadNext file
 
 });
+
+
+//});
+
