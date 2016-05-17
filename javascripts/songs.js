@@ -21,14 +21,30 @@ var songList = $("#songListDom");
 $(document).ready(function() {
   //need load songs from Json file ajax calls
     console.log("doucment ready test" );
-   
+
+
   function loadanddisplaysongs(){
+
+
+
+// function loadsongs(){
+
 
    $.ajax({
     url: "https://musichistory-bg-e3.firebaseio.com/songs.json"})
         .done(addedSongs);//replace addedSongs with UpdateSongsEntered
+
   }
   loadanddisplaysongs();
+
+
+
+//}
+
+//loadsongs();
+
+
+
 
 
 
@@ -46,7 +62,7 @@ function deleteSongDB(NeedsongKey){
     })
     .done(function(response) {
     console.log("response from Firebase:", response);
-
+    loadsongs();
 });
   }
 
@@ -66,8 +82,14 @@ function updateSongsEntered(songs){
     "<button class='deleteButton'>Delete</button>" +
     "</li>";
   }
+
   console.log("songlist string", songListString);
   songList.html("");
+
+
+  //songList.html("");
+  //console.log("songlist string", songListString);
+
   songList.append(songListString);
 
   watchForDelete();
@@ -85,12 +107,18 @@ function watchForDelete() {
 //------------listParent is the Parent of the button. once envoked remove the li -----------------//
 //-------------as the child of the ordered list since deleting the li removes the entire entry----//
 function deleteSong(event) {
-  let listParent = $(event.target.parentElement);
-  $(listParent, songList).remove();
+  let listParent = event.target.closest('li').id;
+  //$(listParent, songList).remove();
    console.log("songlist",songList );
+
    console.log("listParent.ID", listParent[0].id);
 
    deleteSongDB(listParent[0].id);
+
+   // console.log("listParent.ID", listParent.id);
+   // deleteSongDB(listParent);
+   // loadsongs()
+
 //------------------call ajax  to remove from firebase---------------------//
 
 
@@ -198,6 +226,7 @@ function loadNextFile(event) {
     data: JSON.stringify(newSong)
   }).done(function(songsfromPost){
     console.log("it saved", songsfromPost);
+    loadsongs();
     return addedSongs();  //why did  i have to add this
  });
   //addedSongs
@@ -218,4 +247,9 @@ function loadNextFile(event) {
   artistEntered.val("");
   albumEntered.val("");
 } //end of  loadNext file
+
 });
+
+
+//});
+
