@@ -19,16 +19,10 @@ var songList = $("#songListDom");
 //---------------------refactored for Exe 8----------------------------------------//
 //---------------------populate on page load---------------------------------------//
 $(document).ready(function() {
-  //need load songs from Json file ajax calls
-    console.log("doucment ready test" );
 
+  console.log("doucment ready test" );
 
   function loadanddisplaysongs(){
-
-
-
-// function loadsongs(){
-
 
    $.ajax({
     url: "https://musichistory-bg-e3.firebaseio.com/songs.json"})
@@ -36,17 +30,6 @@ $(document).ready(function() {
 
   }
   loadanddisplaysongs();
-
-
-
-//}
-
-//loadsongs();
-
-
-
-
-
 
 //------------change to function so new songs can be entered through new page----------//
 //------------Loop over results and inject into Music History list view----------------//
@@ -62,7 +45,8 @@ function deleteSongDB(NeedsongKey){
     })
     .done(function(response) {
     console.log("response from Firebase:", response);
-    loadsongs();
+    //loadsongs();
+    loadanddisplaysongs();
 });
   }
 
@@ -79,16 +63,13 @@ function updateSongsEntered(songs){
     songs[song].artist +
     " on the Album " +
     songs[song].album +
+    "<button class='editButton'>editButton</button>" +
     "<button class='deleteButton'>Delete</button>" +
     "</li>";
   }
 
-  console.log("songlist string", songListString);
-  songList.html("");
-
-
-  //songList.html("");
   //console.log("songlist string", songListString);
+  songList.html("");
 
   songList.append(songListString);
 
@@ -107,20 +88,14 @@ function watchForDelete() {
 //------------listParent is the Parent of the button. once envoked remove the li -----------------//
 //-------------as the child of the ordered list since deleting the li removes the entire entry----//
 function deleteSong(event) {
-  let listParent = event.target.closest('li').id;
-  //$(listParent, songList).remove();
-   console.log("songlist",songList );
+  let listParent = $(event.target).closest('li')[0].id;
+  //let listParent = $(event.target.parentElement);
+  $(listParent, songList).remove();
+   //console.log("songlist",songList );
 
-   console.log("listParent.ID", listParent[0].id);
+   console.log("listParent", listParent);
 
-   deleteSongDB(listParent[0].id);
-
-   // console.log("listParent.ID", listParent.id);
-   // deleteSongDB(listParent);
-   // loadsongs()
-
-//------------------call ajax  to remove from firebase---------------------//
-
+   deleteSongDB(listParent);
 
 
 }//end of delete song
@@ -161,56 +136,17 @@ function addedSongs(songsfromJson){
  // for let (songs in songsfromJson)
 
   console.log("songsfromJson", songsfromJson);
-  // songsfromJson = songsfromJson.songs;
 
-
-  // for (let song in songsfromJson){
-  //   songs.push(songsfromJson[song]);
-  // };
-
-
-  // for (var i = 0; i < songsfromJson.length; i++) {
-  //   songs.push(songsfromJson[i]);
-  // }
-  //call the update dom function
   updateSongsEntered(songsfromJson);
 }
 
-
-//--------------------------update songs from add songs page------------------------------------//
-//function updateSongs(){
-  //todo?? move 159 -> 163 into here   then call  addedsongs
-  //console.log("in updateSongs" );
-  // var songEntered = $("#addTitle");
-  // var artistEntered = $("#addArtist");
-  // var albumEntered = $("#addAlbum");
-  // songs.push({ "title": songEntered.val(), "artist": artistEntered.val(), "album":albumEntered.val()});
-  // //call the update dom function
-  // updateSongsEntered(songs);
-  // //reset the form values for next entry
-  // songEntered.val("");
-  // artistEntered.val("");
-  // albumEntered.val("");
-//}
-
-
-//---------when the add music button is clicked, envoke function to add those songs to array--------//
-// addMuiscButton.click(updateSongs);
 addMusicButton.click(loadNextFile);
 
 //---------------------when user presses more button pull in second JSON file-----------------------//
 
-// var moreMusicButton =$("#moreButton");
-// moreMusicButton.click(loadNextFile);
 
 //---------when the more button is clicked, envoke function to add those songs to array------------//
 function loadNextFile(event) {
-
-    // let newSong ={
-    //   "title":"crap2"
-    //   "album":"blah",
-    //   "artist":"whatever"
-    // }
 
     let newSong ={
      "title":$("#addTitle").val(),
@@ -226,27 +162,27 @@ function loadNextFile(event) {
     data: JSON.stringify(newSong)
   }).done(function(songsfromPost){
     console.log("it saved", songsfromPost);
-    loadsongs();
+    //loadsongs();
+    //loadanddisplaysongs()
     return addedSongs();  //why did  i have to add this
  });
-  //addedSongs
+
   console.log("dom?");
   console.log("songid", songs );
-    // success: addedSongs
-  // });
+
 //--------------------------update songs from add songs page------------------------------------------//
  var songEntered = $("#addTitle");
  var artistEntered = $("#addArtist");
  var albumEntered = $("#addAlbum");
  songs.push({ "title": songEntered.val(), "artist": artistEntered.val(), "album":albumEntered.val()});
 //--------------------------call the update dom function----------------------------------------------//
-  //updateSongsEntered(songs);
+
   loadanddisplaysongs();
 //--------------------------------reset the form values for next entry-------------------------------//
   songEntered.val("");
   artistEntered.val("");
   albumEntered.val("");
-} //end of  loadNext file
+}
 
 });
 
