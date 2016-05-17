@@ -155,3 +155,6 @@ Application refactored to use the Bootstrap grid system for layout  - Not Comple
 ###Completed Version 4 final
 ![Screenshot](/imgs/musicHistoryV4pt2.png)
 
+###Completed Version 7 and 8 final
+![Screenshot](/imgs/musicHistoryV8.png)
+
